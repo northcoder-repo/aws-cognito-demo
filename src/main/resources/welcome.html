@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>North Tech Work</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body {
+                font-family: Verdana,sans-serif;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>North Tech Work - Welcome</h2>
+
+        <div data-th-if="${user} != null">
+            <div data-th-text="'Welcome, ' + ${user.preferredName} + '!'"></div>
+            <p></p>
+            <a data-th-href="${signOutUrl}">Click here to sign out.</a>
+        </div>
+
+        <div data-th-if="${user} == null">
+            <div data-th-text="'You are not signed in.'"></div>
+            <p></p>
+            <a data-th-href="${signInUrl}">Already have an account? Sign In Here!</a>
+            <p></p>
+            <a data-th-href="${signUpUrl}">Need an account? Sign Up Here!</a>
+        </div>
+        
+        <div>
+            <p></p>
+            <a data-th-href="@{/signed-in}">Secret info for all signed-in users</a>
+            <p></p>
+            <a data-th-href="@{/secured}">Secret info for authorized users only</a>
+            <p></p>
+            <a data-th-href="@{/admin}">Super-secret info for administrators only</a>
+        </div>
+
+    </body>
+</html>

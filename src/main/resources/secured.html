@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>North Tech Work</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body {
+                font-family: Verdana,sans-serif;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 data-th-text="'Welcome, ' + ${user.preferredName}">Welcome</h2>
+        <div>Only users with the correct authorization can access this page. Specifically,</div>
+        <div>a user has to be given the AUTHORIZED user role, by being added to the "authorized"</div>
+        <div>group in Cognito (using the AWS Cognito dashboard).</div>
+        <p></p>
+        <div data-th-text="'User ID: ' + ${user.userID}"></div>
+        <div data-th-text="'Full name: ' + ${user.givenName} + ' ' + ${user.familyName}"></div>
+        <div data-th-text="'E-mail: ' + ${user.email}"></div>
+        <div data-th-text="'E-mail is verified: ' + ${user.emailIsVerified}"></div>
+        <div data-th-text="'Roles: ' + ${user.assignedRoles}"></div>
+        <p></p>
+        <a data-th-href="@{/welcome}">Back to welcome page</a>
+    </body>
+</html>
